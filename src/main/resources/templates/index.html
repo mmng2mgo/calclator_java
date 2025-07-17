@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head> 
+	    <title>カウンター</title> 
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<p>現在の値：<span th:text="${currentNumber} ?: '0'"></span></p>
+		<p>left:<span th:text="${left}"></span></p>
+		<p>right:<span th:text="${right}"></span></p>
+		<p>operator:<span th:text="${operator}"></span></p>
+		<form action="/calclator" method="post">
+			<input type="hidden" name="left" th:value="${left}"/>
+			<input type="hidden" name="right" th:value="${right}"/>
+			<input type="hidden" name="currentNumber" th:value="${currentNumber} ?: '0'"/>
+			<input type="hidden" name="previousValue" th:value="${previousValue}"/>
+			<input type="hidden" name="previousOperator" th:value="${previousOperator}"/>
+			<input type="hidden" name="previousRight" th:value="${previousRight}"/>
+			
+			<button type="submit" name="action" value="C">C</button>
+			<button type="submit" name="action" value="÷">÷</button>
+			<br/>
+			<button type="submit" name="action" value="7">7</button>
+			<button type="submit" name="action" value="8">8</button>
+			<button type="submit" name="action" value="9">9</button>
+			<button type="submit" name="action" value="×">×</button>
+			<br />
+			<button type="submit" name="action" value="4">4</button>
+			<button type="submit" name="action" value="5">5</button>
+			<button type="submit" name="action" value="6">6</button>
+			<button type="submit" name="action" value="-">-</button>
+			<br />
+			<button type="submit" name="action" value="1">1</button>
+			<button type="submit" name="action" value="2">2</button>
+			<button type="submit" name="action" value="3">3</button>
+			<button type="submit" name="action" value="+">+</button>
+			<br />
+			<button type="submit" name="action" value="0">0</button>
+			<button type="submit" name="action" value="=">=</button>
+		</form>
+	</body>
+</html>
